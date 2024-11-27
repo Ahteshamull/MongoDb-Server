@@ -48,7 +48,7 @@ app.delete("/delete-todo/:id", async (req, res) => {
 
 app.patch("/update-todo/:id", async(req, res) => {
     let { id } = req.params
-    let {task} = req.body
+  let { task} =req.body
     let updateTodo = await todoModel.findOneAndUpdate({ _id: id },{task:task},{new:true})
     return res.status(200).send({msg:"Updated Todo Successfully",Data: updateTodo})
 })
